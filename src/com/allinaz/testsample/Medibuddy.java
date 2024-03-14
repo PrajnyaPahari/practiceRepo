@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,7 +16,7 @@ public class Medibuddy {
 		// TODO Auto-generated method stub
 		String url = "https://www.medibuddy.in/";
 		WebDriver driver = null;
-		driver = new ChromeDriver();
+		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.get(url);
@@ -29,6 +30,9 @@ public class Medibuddy {
 		driver.findElement(By.id("password")).sendKeys("john1234");
 		//driver.findElement(By.xpath("//img[@alt='show-password']")).click();
 		driver.findElement(By.cssSelector("button[type='submit']")).click();
+		WebElement data = driver.findElement(By.xpath("//div[contains(@class,'alert-danger')]"));
+		String value = data.getText();
+		System.out.println(value);
 		
 	}
 
