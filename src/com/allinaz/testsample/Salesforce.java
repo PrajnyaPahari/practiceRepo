@@ -17,7 +17,7 @@ public class Salesforce {
 		WebDriver driver= null;
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(url);
 		driver.findElement(By.name("UserFirstName")).sendKeys("john");
 		driver.findElement(By.name("UserLastName")).sendKeys("wick");
